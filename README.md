@@ -61,7 +61,7 @@
 
 ### Association
 
-- has_many :MachBuras
+- belongs_to :store
 - belongs_to :user
 - belongs_to :rating
 

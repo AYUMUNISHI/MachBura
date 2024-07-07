@@ -1091,10 +1091,11 @@ footer p {
 
 .contents-wrapper {
   width: 100vw;
-padding: 30px 50px;
+  padding: 30px 50px;
 }
 .contents {
   display:flex;
+  justify-content: space-between;
 
 }
 .content-imag{
@@ -1111,7 +1112,7 @@ padding: 30px 50px;
 
 }
 .store-name{
-  font-size: 25px;
+  font-size: 30px;
   font-weight: 600;
 }
 .sub-content{
@@ -1142,6 +1143,7 @@ padding: 30px 50px;
   background-color: rgb(245, 242, 232);
   text-align: center;
   font-size: 20px;
+
   margin-right: 20px;
 }
 .number-comments{
@@ -1153,7 +1155,7 @@ padding: 30px 50px;
   justify-content: left;
   align-items: center;
   height: 25px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 .comment{
   height: 60px;
@@ -1174,6 +1176,51 @@ padding: 30px 50px;
  * ========================================================================== */
  .show-wrapper{
   width: 100vw;
-  padding-top:50px;
-  padding-left: 100px;
+  padding:50px 100px;
  }
+ .store-content{
+  width:600px;
+ }
+ .show-sub-content{
+  display: flex;
+  justify-content: left;
+  padding-bottom: 15px;
+  border-top: 1px solid #666;
+
+ }
+ .comment-box{
+  height: 60px;
+  width: auto;
+  padding: 0 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color :rgb(245, 242, 232);
+
+ }
+ .comment-warn button{
+  height: 40px;
+  width: 150px;
+  text-align: center;
+ }
+ .comment-btn{
+  margin: 0 5px;
+ }
+
+.contens-main{
+  display: flex;
+  justify-content: left;
+  border-top: 1px solid #666;
+  padding-top: 15px;
+
+}
+.content-imag{
+  width: 500px;
+  height: 400px;
+
+}
+.phone{
+  font-size: 20px;
+  font-weight: 500;
+  color: #000;
+}
