@@ -25,11 +25,11 @@
 | Column                 | Type    | Options     |
 | -----------------    - | ------  | ----------- |
 | store                  | string  | null: false |商品名
-| product _description   | text    | null: false |商品の説明
+| product_description   | text    | null: false |商品の説明
 | category_id            | integer | null: false |カテゴリー
 | cooking_name           | string  | null: false |料理名
-| lunch_business_charge  | string  | null: false |ランチ営業時間
-| dinner_business_charge | string  | null: false |ディナー営業時間
+| lunch_id               | integer | null: false |ランチ料金
+| dinner_id              | integer | null: false |ディナー料金
 | phone                  | string  | null: false |電話番号
 | prefecture_id          | integer | null: false |都道府県
 | city                   | string  | null: false |市町村

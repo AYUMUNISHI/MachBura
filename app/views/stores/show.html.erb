@@ -1,0 +1,50 @@
+<div class= "show-wrapper">
+  <div class="content">
+    <div class="store-name">
+       <%=  @store.store %>
+    </div>
+    <div class="assessment">
+      <div class= "star-assessment">
+        <%= "☆☆☆☆☆ 5.00" %>
+      </div>
+      <div class="number-comments">
+        <%= link_to "100人","#", class: :number_comment%>
+      </div>
+    </div>
+    <div class="sub-content">
+      <div class="city-name sub">
+         <%="#{@store.city}/" %>
+      </div>
+      <div class="category-typ sub" >
+         <%= @store.category.name %>
+      </div>
+    </div>
+    <div class="summary">
+     <div class="dinner-business sub">
+       <%= image_tag("")%>
+       <%= @store.dinner.name %>
+     </div>
+     <div class="lunch-business sub">
+       <%= image_tag("")%>
+       <%= @store.lunch.name %>
+     </div>
+     <div class="regular sub">
+       <%= image_tag("")%>
+       <%= @store.regular_day %>
+     </div>
+    </div>
+    <div class="comment-box">
+      <div class="comment-warn">
+        <button type="submit" class="comment-btn">
+        <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
+        <span>コメントする<span>
+       </button>
+      </div>
+    </div>
+  </div>
+  <div class="contens-main">
+     <div class="content-imag">
+      <%= image_tag(@store.image, class: "top_image") %>
+    </div>
+    <div class= "phone">
+      <%= @store.phone %>

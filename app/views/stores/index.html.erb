@@ -1,57 +1,8 @@
-<div class="contents-wrapper">
-  <div class="contents">
-    <div class="content-imag">
-      <%= link_to image_tag("レトロな店内.jpg", class: :main_image) %>
-    </div>
-    <div class="content">
-      <div class="store-name">
-       <%= link_to "和食そら" ,"#", class: :store %>
-      </div>
-      <div class="sub-content">
-       <div class="city-name sub">
-         <%= "飯田市/" %>
-       </div>
-       <div class="category-typ sub" >
-         <%= "居酒屋" %>
-        </div>
-      </div>
-      <div class="product-description">
-        <%= "下伊那の野菜と飯田市特産黒豚である「天竜峡黒豚」を使った一品　落ち着いた雰囲気の楽しめる居酒屋"  %>
-      </div>
-      <div class="assessment">
-        <div class= "star-assessment">
-          <%= "☆☆☆☆☆ 5.00" %>
-        </div>
-        <div class="number-comments">
-          <%= link_to "100人","#", class: :number_comment%>
-        </div>
-      </div>
-        <div class="summary">
-          <div class="dinner-business sub">
-            <%= image_tag("")%>
-            <%= "¥2000 ~ ¥5000" %>
-          </div>
-          <div class="lunch-business sub">
-            <%= image_tag("")%>
-            <%= "¥1000 ~ ¥3000" %>
-          </div>
-          <div class="regular sub">
-            <%= image_tag("")%>
-            <%= "月曜日・木曜日" %>
-          </div>
-        </div>
-        <div class="comment">
-          <div class="comment-title">
-           <%=link_to "コメント" ,"#", class: :description %> 
-          </div>
-          <div class="comment-remark">
-           <%=link_to "コメント内容", "#" ,class: :remark %>
-           <%=link_to "by歩","#" ,class: :nickname %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+
+  <% @stores.each do |store| %>
+  <%= render partial: "form", locals: { store: store } %> 
+  
+<% end %>
   
 <p>Find me in app/views/stores/index.html.erb</p>
+<p>下伊那の野菜と飯田市特産黒豚である「天竜峡黒豚」を使った一品　落ち着いた雰囲気の楽しめる居酒屋</p>
