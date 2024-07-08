@@ -45,18 +45,24 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_07_124408) do
   end
 
   create_table "comments", charset: "utf8", force: :cascade do |t|
-    t.text "description", null: false
+    t.text "comment", null: false
     t.string "remark", null: false
     t.integer "rating_id", null: false
+    t.integer "count_id", null: false
+    t.integer "charge_id", null: false
+    t.integer "hours_id", null: false
     t.bigint "user_id", null: false
+    t.bigint "store_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["store_id"], name: "index_comments_on_store_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "stores", charset: "utf8", force: :cascade do |t|
     t.string "store", null: false
     t.text "product_description", null: false
+    t.text "description", null: false
     t.integer "category_id", null: false
     t.string "cooking_name", null: false
     t.integer "lunch_id", null: false
@@ -92,6 +98,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_07_124408) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "comments", "stores"
   add_foreign_key "comments", "users"
   add_foreign_key "stores", "users"
 end

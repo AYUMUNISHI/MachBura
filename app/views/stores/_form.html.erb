@@ -31,10 +31,17 @@
       <%= f.text_area :store, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
       <div class="items-explain">
         <div class="weight-bold-text">
-          お店の説明
+          サブタイトル
           <span class="indispensable">必須</span>
         </div>
         <%= f.text_area :product_description, class:"items-text", id:"item-info", placeholder:"商品の説明（必須 1,000文字まで）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。" ,rows:"7" ,maxlength:"1000" %>
+      </div>
+      <div class="items-explain">
+        <div class="weight-bold-text">
+          お店の説明
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :description, class:"items-text", id:"item-info", placeholder:"商品の説明（必須 1,000文字まで）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。" ,rows:"7" ,maxlength:"1000" %>
       </div>
     </div>
     <%# /商品名と商品説明 %>
@@ -54,13 +61,12 @@
         </div>
         <%= f.text_area :cooking_name, class:"items-text", id:"cooking_name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
         <div class="weight-bold-text">
-          ランチの料金設定
+          ディナーの料金設定
           <span class="indispensable">必須</span>
         </div>
         <%= f.collection_select(:dinner_id, Dinner.all, :id, :name, {}, {class:"select-box", id:"item-dinner"}) %>        
         <div class="weight-bold-text">
-          ディナーの料金設定
-          <span class="indispensable">必須</span>
+          ランチの料金設定          <span class="indispensable">必須</span>
         </div>
          <%= f.collection_select(:lunch_id, Lunch.all, :id, :name, {}, {class:"select-box", id:"item-lunch"}) %>
         <div class="weight-bold-text">

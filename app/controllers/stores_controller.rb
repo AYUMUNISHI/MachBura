@@ -3,7 +3,7 @@ class StoresController < ApplicationController
 
   def index
     @store = Store.new
-    @stores = Store.all
+    @stores = Store.includes(:user)
   end
 
   def new
@@ -20,6 +20,8 @@ class StoresController < ApplicationController
   end 
 
   def show
+    @comment = Comment.new
+    @comments = @store.comments.includes(:user)
   end
 
   def edit
@@ -48,7 +50,7 @@ class StoresController < ApplicationController
   end
 
 def store_params
-  params.require(:store).permit(:image, :store, :product_description, :cooking_name, :lunch_id, :dinner_id, :phone, :city, :block, :building, :regular_day, :category_id, :prefecture_id).merge(user_id: current_user.id)
+  params.require(:store).permit(:image, :store, :product_description, :description, :cooking_name, :lunch_id, :dinner_id, :phone, :city, :block, :building, :regular_day, :category_id, :prefecture_id).merge(user_id: current_user.id)
 end
 
 end

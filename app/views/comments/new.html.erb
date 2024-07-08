@@ -1,0 +1,77 @@
+<div class="stores-sell-contents">
+  <div class="items-sell-main">
+    <h2 class="items-sell-title">商品の情報を入力</h2>
+    <%= form_with model: [@store,@comment], url: store_comments_path, local: true do |f| %>
+
+    <%# <%= render 'shared/error_messages', model: f.object %> 
+
+
+
+    <%# 紹介画像 %>
+     <div class="img-upload">
+      <div class="weight-bold-text">
+        商品画像
+        <span class="indispensable">必須</span>
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :image, id:"item-image" %>
+      </div>
+    </div>
+    <%# /紹介画像 %>
+
+    <%# お店の詳細 %>
+    <div class="items-detail">
+      <div class="weight-bold-text">お店の評価</div>
+      <div class="form">
+        <div class="weight-bold-text">
+          お店の評価
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:rating_id, Rating.all, :id, :name, {}, {class:"select-box", id:"item-rating"}) %>
+        <div class="weight-bold-text">
+          利用したことがある回数
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:count_id, Count.all, :id, :name, {}, {class:"select-box", id:"item-count"}) %>        
+        <div class="weight-bold-text">
+          使用した料金
+          <span class="indispensable">必須</span>
+        </div>
+         <%= f.collection_select(:charge_id, Charge.all, :id, :name, {}, {class:"select-box", id:"item-charge"}) %>
+        <div class="weight-bold-text">
+          利用した時間帯
+          <span class="indispensable">必須</span>
+        </div>
+         <%= f.collection_select(:hours_id, Hours.all, :id, :name, {}, {class:"select-box", id:"item-hours"}) %>
+      </div>
+    </div>
+    <%# /お店の詳細 %>
+
+
+    <%# 商品名と商品説明 %>
+    <div class="new-items">
+      <div class="weight-bold-text">
+        タイトル
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :remark, class:"items-text", id:"item-remark", placeholder:"口コミタイトル（必須 40文字まで)", maxlength:"40" %>
+      <div class="items-explain">
+        <div class="weight-bold-text">
+          お店を利用してみての感想
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :comment, class:"items-text", id:"item-comment", placeholder:"お店を利用してみての感想（必須 1,000文字まで）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。" ,rows:"7" ,maxlength:"1000" %>
+      </div>
+    </div>
+    <%# /商品名と商品説明 %>
+
+
+    <div class='buy-btn'>
+      <%= f.submit "決定" ,class:"buy-red-btn", id:"button" %>
+    </div>
+    <% end %>
+  </div>
+</div>

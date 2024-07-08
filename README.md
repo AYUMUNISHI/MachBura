@@ -54,9 +54,12 @@
 
 | Column             | Type       | Options                        |
 | ------             | ---------- | ------------------------------ |
-| description        | text       | null: false |説明
+| comment            | text       | null: false |説明
 | remark             | string     | null: false |内容
-| rating_id             | integer    | null: false |評価
+| rating_id          | integer    | null: false |評価
+| count_id           | integer    | null: false |使用回数
+| charge_id          | integer    | null: false |料金
+| hours_id           | integer    | null: false |時間帯
 | user               | references | null: false, foreign_key: true |
 
 ### Association

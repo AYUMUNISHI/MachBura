@@ -27,7 +27,7 @@
        </div>
        <div class="lunch-business sub">
           <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
-         <%= @store.lunch.name %>
+         <%= @store.dinner.name %>
        </div>
        <div class="regular sub">
          <%= image_tag("")%>
@@ -56,10 +56,12 @@
       <% else %>
 
       <div class="comment-warn">
+        <%= link_to new_store_comment_path(@store.id),data: { turbo: false }, class: :comment_btn do%>
         <button type="submit" class="comment-btn">
           <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
         <span>コメントする<span>
        </button>
+       <% end %>
       </div>
       <div class="comment-warn">
         <button type="submit" class="comment-btn">
@@ -71,7 +73,8 @@
       <% end %>
     </div>
   </div>
-  <div class="contens-main">
+  <div class="show-main">
+    <div class="contens-main">
     <div class="content-imag">
       <%= image_tag(@store.image, class: "top_image") %>
     </div>
@@ -84,5 +87,14 @@
         <%= link_to "#"%>
       </div>
     </div>
+   </div>
   </div>
+  
+  <div class="subject">
+    <div class="product_description">
+      <%= @store.product_description%>
+    </div>
+    <div class="description">
+      <%= @store.description %>
+    </div>
 </div>

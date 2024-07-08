@@ -3,6 +3,7 @@ class CreateStores < ActiveRecord::Migration[7.0]
     create_table :stores do |t|
       t.string     :store,                  null: false
       t.text       :product_description,    null: false
+      t.text       :description,            null: false
       t.integer    :category_id,            null: false
       t.string     :cooking_name,           null: false
       t.integer    :lunch_id,               null: false

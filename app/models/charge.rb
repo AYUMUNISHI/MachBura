@@ -1,4 +1,4 @@
-class Lunch < ActiveHash::Base
+class Charge < ActiveHash::Base
   self.data = [
    { id: 1, name: '---' },
    { id: 2, name: '¥1000未満' },
@@ -16,9 +16,11 @@ class Lunch < ActiveHash::Base
    { id: 14, name: '¥25,000 ~ ¥29,999' },
    { id: 15, name: '¥30,000 ~ ¥39,999' },
    { id: 16, name: '¥40,000 ~ ¥49,999' },
-   { id: 17, name: '¥49,999以上' }
+   { id: 17, name: '¥49,999以上' },
+   
+
  ]
 
  include ActiveHash::Associations
- has_many :stores
+ has_many :comments
 end
