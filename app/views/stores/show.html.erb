@@ -1,0 +1,119 @@
+<div class= "show-wrapper">
+  <div class="show-contents">
+    <div class="store-content">
+      <div class="store-name">
+         <%=  @store.store %>
+      </div>
+      <div class="assessment">
+        <div class= "star-assessment">
+          <%= "☆☆☆☆☆ 5.00" %>
+        </div>
+        <div class="number-comments">
+          <%= link_to "100人","#", class: :number_comment%>
+        </div>
+      </div>
+      <div class="show-sub-content">
+        <div class="city-name sub">
+           <%="市町村：#{@store.city}/　 " %>
+        </div>
+        <div class="category-typ sub" >
+           <%= "ジャンル：#{@store.category.name}" %>
+        </div>
+      </div>
+      <div class="summary">
+       <div class="dinner-business sub">
+          <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
+         <%= @store.dinner.name %>
+       </div>
+       <div class="lunch-business sub">
+          <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
+         <%= @store.dinner.name %>
+       </div>
+       <div class="regular sub">
+         <%= image_tag("")%>
+         <%= "定休日：#{@store.regular_day}" %>
+       </div>
+      </div>  
+    </div>
+    
+    
+    <div class="comment-box">
+      <% if current_user == @store.user%>
+      <div class="comment-warn">
+        <%= link_to edit_store_path, method: :get, class: :comment_btn do%>
+        <button type="submit" class="comment-btn"> 
+        <span>編集する<span>
+       </button>
+        <% end %>
+      </div>
+      <div class="comment-warn">
+        <%= link_to store_path(@store), data: {turbo_method: :delete}, class: :comment_btn do%>
+        <button type="submit" class="comment-btn"> 
+        <span>削除する<span>
+       </button>
+        <% end %>
+        </div>
+      <% else %>
+
+      <div class="comment-warn">
+        <%= link_to new_store_comment_path(@store.id),data: { turbo: false }, class: :comment_btn do%>
+        <button type="submit" class="comment-btn">
+          <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
+        <span>コメントする<span>
+       </button>
+       <% end %>
+      </div>
+      <div class="comment-warn">
+        <button type="submit" class="comment-btn">
+          <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
+        <span>行った<span>
+       </button>
+      </div>
+      
+      <% end %>
+    </div>
+  </div>
+  <div class="show-main">
+    <div class="contens-main">
+    <div class="content-imag">
+      <%= image_tag(@store.images[0], class: "top_image") %>
+      <div class="sub-image">
+       <div class="order-images">
+         <% @store.images[1..-1].each do |image| %> 
+         <div class="other-image">
+           <%= image_tag image %> 
+         </div>
+         <% end %> 
+        </div>
+      </div>
+
+    </div>
+    <div class="contact">
+      <div class= "phone">
+        <%= image_tag"ダウンロード.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
+        <%= ":#{@store.phone}" %>
+      </div>
+      <div class="map">
+        <%= link_to "#"%>
+      </div>
+    </div>
+   </div>
+  </div>
+  
+  <div class="subject">
+    <div class="product_description">
+      <%= @store.product_description%>
+    </div>
+    <div class="description">
+      <%= @store.description %>
+    </div>
+</div>
+<div class="comments">
+      <h4>＜コメント一覧＞</h4>
+      <% @comments.each do |comment| %>
+        <p>
+          <strong><%= comment.user.nickname %></strong>
+          <%= comment.comment %>
+        </p>
+      <% end %>
+    </div>

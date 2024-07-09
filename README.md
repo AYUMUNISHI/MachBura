@@ -16,7 +16,7 @@
 
 ### Association
 
-- has_many :MachBuras
+- has_many :store
 - has_many :comment
 
 
@@ -25,17 +25,17 @@
 | Column                 | Type    | Options     |
 | -----------------    - | ------  | ----------- |
 | store                  | string  | null: false |商品名
-| product _description   | text    | null: false |商品の説明
+| product_description   | text    | null: false |商品の説明
 | category_id            | integer | null: false |カテゴリー
 | cooking_name           | string  | null: false |料理名
-| lunch_business_hours   | string  | null: false |ランチ営業時間
-| dinner_business_hours  | string  | null: false |ディナー営業時間
+| lunch_id               | integer | null: false |ランチ料金
+| dinner_id              | integer | null: false |ディナー料金
 | phone                  | string  | null: false |電話番号
 | prefecture_id          | integer | null: false |都道府県
 | city                   | string  | null: false |市町村
 | block                  | string  | null: false |番地
 | building               | string  |             |建物名・部屋番号
-| price                  | integer | null: false |値段
+| regular_day            | string  | null: false |定休日
 | user                   | references | null: false, foreign_key: true |
 | comment                | references | null: false, foreign_key: true |
 
@@ -54,14 +54,18 @@
 
 | Column             | Type       | Options                        |
 | ------             | ---------- | ------------------------------ |
-| description        | text       | null: false |説明
+| comment            | text       | null: false |説明
 | remark             | string     | null: false |内容
-| rating             | integer    | null: false |評価
+| rating_id          | integer    | null: false |評価
+| count_id           | integer    | null: false |使用回数
+| charge_id          | integer    | null: false |料金
+| hours_id           | integer    | null: false |時間帯
 | user               | references | null: false, foreign_key: true |
 
 ### Association
 
-- has_many :MachBuras
+- belongs_to :store
 - belongs_to :user
+- belongs_to :rating
 
 

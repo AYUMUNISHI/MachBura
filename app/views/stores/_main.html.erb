@@ -1,0 +1,71 @@
+<div class="contents-wrapper">
+  <div class="contents">
+    <div class="content-imag">
+      <div class="main-imag">
+      <%= link_to image_tag(store.images[0], class: "main_image"), store_path(store) %>
+      </div>
+      <div class="sub-image">
+       <div class="order-images">
+         <% store.images[1..-1].each do |image| %> 
+         <div class="other-image">
+           <%= image_tag image %> 
+          </div>
+         <% end %> 
+        </div>
+      </div>
+    
+    </div>
+    <div class="content">
+      <div class="store-name">
+       <%= link_to store.store ,store_path(store), class: :store %>
+      </div>
+      <div class="sub-content">
+       <div class="city-name sub">
+         <%="#{store.city}/" %>
+       </div>
+       <div class="category-typ sub" >
+         <%= store.category.name %>
+        </div>
+      </div>
+      <div class="product-description">
+        <%= store.product_description  %>
+      </div>
+      <div class="assessment">
+        <div class= "star-assessment">
+          <%= "☆☆☆☆☆ 5.00" %>
+        </div>
+        <div class="number-comments">
+          <%= link_to "100人","#", class: :number_comment%>
+        </div>
+      </div>
+        <div class="summary">
+          <div class="dinner-business sub">
+            <%= image_tag("")%>
+            <%= store.dinner.name %>
+          </div>
+          <div class="lunch-business sub">
+            <%= image_tag("")%>
+            <%= store.dinner.name %>
+          </div>
+          <div class="regular sub">
+            <%= image_tag("")%>
+            <%= "定休日：#{store.regular_day}" %>
+          </div>
+        </div>
+        
+        <div class="comment">
+           <% store.comments.each do |comment| %>
+          <div class="comment-title">
+           <%=link_to "コメント" ,"#", class: :description %> 
+          </div>
+          <div class="comment-remark">
+           <%=link_to comment.comment, store_path(store) ,class: :remark %>
+           <%=link_to comment.user.nickname,"#" ,class: :nickname %>
+          </div>
+          <% end %> 
+        </div>
+      </div>
+    </div>
+  </div> 
+ </div>
+</div>
