@@ -1,7 +1,19 @@
 <div class="contents-wrapper">
   <div class="contents">
     <div class="content-imag">
-      <%= link_to image_tag(store.image, class: "main_image"), store_path(store) %>
+      <div class="main-imag">
+      <%= link_to image_tag(store.images[0], class: "main_image"), store_path(store) %>
+      </div>
+      <div class="sub-image">
+       <div class="order-images">
+         <% store.images[1..-1].each do |image| %> 
+         <div class="other-image">
+           <%= image_tag image %> 
+          </div>
+         <% end %> 
+        </div>
+      </div>
+    
     </div>
     <div class="content">
       <div class="store-name">
@@ -42,13 +54,15 @@
         </div>
         
         <div class="comment">
+           <% store.comments.each do |comment| %>
           <div class="comment-title">
            <%=link_to "コメント" ,"#", class: :description %> 
           </div>
           <div class="comment-remark">
-           <%=link_to "コメント内容", "#" ,class: :remark %>
-           <%=link_to "by歩","#" ,class: :nickname %>
+           <%=link_to comment.comment, store_path(store) ,class: :remark %>
+           <%=link_to comment.user.nickname,"#" ,class: :nickname %>
           </div>
+          <% end %> 
         </div>
       </div>
     </div>

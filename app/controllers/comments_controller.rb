@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new
   end
   def create
-    @comment = Comment.new(comment_params)
+    @comment = Comment.create(comment_params)
     if @comment.save
       redirect_to store_path(@comment.store)
     else

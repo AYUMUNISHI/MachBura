@@ -1,5 +1,5 @@
 <div class= "show-wrapper">
-  <div class="contents">
+  <div class="show-contents">
     <div class="store-content">
       <div class="store-name">
          <%=  @store.store %>
@@ -76,7 +76,17 @@
   <div class="show-main">
     <div class="contens-main">
     <div class="content-imag">
-      <%= image_tag(@store.image, class: "top_image") %>
+      <%= image_tag(@store.images[0], class: "top_image") %>
+      <div class="sub-image">
+       <div class="order-images">
+         <% @store.images[1..-1].each do |image| %> 
+         <div class="other-image">
+           <%= image_tag image %> 
+         </div>
+         <% end %> 
+        </div>
+      </div>
+
     </div>
     <div class="contact">
       <div class= "phone">
@@ -98,3 +108,12 @@
       <%= @store.description %>
     </div>
 </div>
+<div class="comments">
+      <h4>＜コメント一覧＞</h4>
+      <% @comments.each do |comment| %>
+        <p>
+          <strong><%= comment.user.nickname %></strong>
+          <%= comment.comment %>
+        </p>
+      <% end %>
+    </div>

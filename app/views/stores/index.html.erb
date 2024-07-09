@@ -1,6 +1,6 @@
 
-  <% @stores.each do |store| %>
-  <%= render partial: "main", locals: { store: store } %> 
+  <% @stores.each do |store,comments| %>
+  <%= render partial: "main", locals: { store: store} %> 
   
 <% end %>
   
