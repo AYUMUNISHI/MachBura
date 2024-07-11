@@ -1091,6 +1091,7 @@ footer p {
 .contents-wrapper {
   width: 100vw;
   padding: 30px 50px;
+  height: 500px;
 }
 .contents {
   width: 100%;
@@ -1101,23 +1102,26 @@ footer p {
 .main-imag{
   margin-bottom: 15px;
 }
+
+
 .order-images{
   display: flex;
   justify-content: space-between;
 }
 .other-image {
   width: 32%;
-  height: auto;
+  height: 100px;
   object-fit: cover;
-
-
+}
+.second_image{
+  height: 180px;
+  object-fit: cover;
 }
 
 .main_image{
   width: 100%;
   height: 250px;
   object-fit: cover;
-  background-color: #57C3E9;
 }
 .content{
   width: calc(100vw - 300px);
