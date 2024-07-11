@@ -1,7 +1,12 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!
 
   def new
-    @comment = Comment.new
+    if current_user == @store.user
+      redirect_to root_path
+    else
+     @comment = Comment.new
+    end
   end
   def create
     @comment = Comment.create(comment_params)
