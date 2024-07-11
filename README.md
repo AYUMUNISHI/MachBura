@@ -25,7 +25,8 @@
 | Column                 | Type    | Options     |
 | -----------------    - | ------  | ----------- |
 | store                  | string  | null: false |商品名
-| product_description   | text    | null: false |商品の説明
+| product_description    | text    | null: false |商品の説明
+| description            |text     | null: false |詳細説明
 | category_id            | integer | null: false |カテゴリー
 | cooking_name           | string  | null: false |料理名
 | lunch_id               | integer | null: false |ランチ料金
@@ -37,7 +38,6 @@
 | building               | string  |             |建物名・部屋番号
 | regular_day            | string  | null: false |定休日
 | user                   | references | null: false, foreign_key: true |
-| comment                | references | null: false, foreign_key: true |
 
 
 ### Association

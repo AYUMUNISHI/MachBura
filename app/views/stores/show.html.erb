@@ -75,19 +75,39 @@
   </div>
   <div class="show-main">
     <div class="contens-main">
-    <div class="content-imag">
-      <%= image_tag(@store.images[0], class: "top_image") %>
-      <div class="sub-image">
-       <div class="order-images">
-         <% @store.images[1..-1].each do |image| %> 
+      <div class="content-imag">
+       <!-- スライドの外枠 -->
+       <div class="slide-wrapper">
+         <!-- スライド（コンテンツ） -->
+         <div id="slide" class="slide">
+             <% @store.images[0..-1].each do |image| %> 
+            <div>
+            <%= image_tag image,class: "top_image" %> 
+            </div>
+           <% end %> 
+          </div>
+
+          <!-- 左右のボタン -->
+          <span id="prev" class="prev"></span>
+          <span id="next" class="next"></span>
+          <!-- インジケーター -->
+          <ul class="indicator" id="indicator">
+           <li class="list"></li>
+           <li class="list"></li>
+           <li class="list"></li>
+          </ul>
+       </div>
+       <div class="sub-image">
+        <div class="order-images">
+         <% @store.images[0..2].each do |image| %> 
          <div class="other-image">
-           <%= image_tag image %> 
+           <%= image_tag image, class:"row-image" %> 
          </div>
          <% end %> 
         </div>
+        </div>
       </div>
 
-    </div>
     <div class="contact">
       <div class= "phone">
         <%= image_tag"ダウンロード.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
@@ -117,3 +137,5 @@
         </p>
       <% end %>
     </div>
+
+
