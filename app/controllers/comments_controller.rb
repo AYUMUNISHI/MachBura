@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_store_id
 
   def new
     if current_user == @store.user
@@ -21,6 +22,10 @@ class CommentsController < ApplicationController
   private
   def comment_params
     params.require(:comment).permit(:image, :comment, :remark, :rating_id, :count_id, :charge_id, :hours_id).merge(user_id: current_user.id, store_id: params[:store_id])
+  end
+
+  def set_store_id
+    @store = Store.find(params[:store_id])
   end
 
 end

@@ -8,7 +8,7 @@
        <div class="order-images">
          <% store.images[1..-1].each do |image| %> 
          <div class="other-image">
-           <%= image_tag(image ,class:"second_image") %> 
+           <%= image_tag(image ,class:"row_image") %> 
           </div>
          <% end %> 
         </div>
@@ -40,11 +40,11 @@
       </div>
         <div class="summary">
           <div class="dinner-business sub">
-            <%= image_tag("")%>
+            <%= image_tag("夜.jpeg",class:"comment-flag-icon" ,width:"20",height:"25")%>
             <%= store.dinner.name %>
           </div>
           <div class="lunch-business sub">
-            <%= image_tag("")%>
+            <%= image_tag("昼.jpeg",class:"comment-flag-icon" ,width:"20",height:"25")%>
             <%= store.dinner.name %>
           </div>
           <div class="regular sub">
@@ -54,13 +54,17 @@
         </div>
         
         <div class="comment">
+         <%=link_to "コメント" ,"#", class: :description %> 
+
            <% store.comments.each do |comment| %>
           <div class="comment-title">
-           <%=link_to "コメント" ,"#", class: :description %> 
+            <%= link_to comment.remark,  store_path(store) %>
           </div>
           <div class="comment-remark">
            <%=link_to comment.comment, store_path(store) ,class: :remark %>
-           <%=link_to comment.user.nickname,"#" ,class: :nickname %>
+           <div class="nickname">
+           <%=link_to comment.user.nickname,"#"%>
+           </div>
           </div>
           <% end %> 
         </div>

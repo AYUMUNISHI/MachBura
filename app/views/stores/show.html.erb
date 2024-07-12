@@ -22,11 +22,11 @@
       </div>
       <div class="summary">
        <div class="dinner-business sub">
-          <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
+          <%= image_tag "夜.jpeg" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
          <%= @store.dinner.name %>
        </div>
        <div class="lunch-business sub">
-          <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
+          <%= image_tag "昼.jpeg" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
          <%= @store.dinner.name %>
        </div>
        <div class="regular sub">
@@ -80,7 +80,7 @@
        <div class="slide-wrapper">
          <!-- スライド（コンテンツ） -->
          <div id="slide" class="slide">
-             <% @store.images[0..-1].each do |image| %> 
+             <% @store.images[0..2].each do |image| %> 
             <div>
             <%= image_tag image,class: "top_image" %> 
             </div>
@@ -101,7 +101,7 @@
         <div class="order-images">
          <% @store.images[0..2].each do |image| %> 
          <div class="other-image">
-           <%= image_tag image, class:"row-image" %> 
+           <%= image_tag image, class:"row_image" %> 
          </div>
          <% end %> 
         </div>
@@ -127,15 +127,22 @@
     <div class="description">
       <%= @store.description %>
     </div>
-</div>
-<div class="comments">
+ </div>
+  <div class="show-comments">
       <h4>＜コメント一覧＞</h4>
       <% @comments.each do |comment| %>
+       
         <p>
           <strong><%= comment.user.nickname %></strong>
-          <%= comment.comment %>
+          <div class="user-comment">
+            <div class="remark">
+            <%= comment.remark %>
+            </div>
+            <%= comment.comment %>
+          </div>
         </p>
       <% end %>
     </div>
-
+  </div>
+</div>
 
