@@ -10,7 +10,7 @@
     <%# 紹介画像 %>
      <div class="img-upload">
       <div class="weight-bold-text">
-        商品画像
+        表紙画像
         <span class="indispensable">必須</span>
       </div>
       <div id="previews"></div>
@@ -19,6 +19,39 @@
           クリックしてファイルをアップロード
         </p>
         <%= f.file_field :images, name: 'store[images][]', data: {index: 0} %>
+      </div>
+       <div class="weight-bold-text">
+        店内の雰囲気が分かる画像
+        <span class="indispensable">必須</span>
+      </div>
+      <div id="previews"></div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :images, name: 'store[images][]', data: {index: 1} %>
+      </div>
+       <div class="weight-bold-text">
+        料理画像
+        <span class="indispensable">必須</span>
+      </div>
+      <div id="previews"></div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :images, name: 'store[images][]', data: {index: 2} %>
+      </div>
+       <div class="weight-bold-text">
+        店内の画像
+        <span class="indispensable">必須</span>
+      </div>
+      <div id="previews"></div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :images, name: 'store[images][]', data: {index: 3} %>
       </div>
     </div>
     <%# /紹介画像 %>
@@ -35,14 +68,14 @@
           サブタイトル
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_area :product_description, class:"items-text", id:"item-info", placeholder:"商品の説明（必須 1,000文字まで）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。" ,rows:"7" ,maxlength:"1000" %>
+        <%= f.text_area :product_description, class:"items-text", id:"item-info", placeholder:"お店の説明のタイトル（必須 100文字まで）（雰囲気、こだわりの食材、こだわっていること、など））" ,rows:"3" ,maxlength:"100" %>
       </div>
       <div class="items-explain">
         <div class="weight-bold-text">
           お店の説明
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_area :description, class:"items-text", id:"item-info", placeholder:"商品の説明（必須 1,000文字まで）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。" ,rows:"7" ,maxlength:"1000" %>
+        <%= f.text_area :description, class:"items-text", id:"item-info", placeholder:"お店の説明（必須 1,000文字まで）（お店の説明のタイトルの内容の深堀や伝えたいことなど）" ,rows:"7" ,maxlength:"1000" %>
       </div>
     </div>
     <%# /商品名と商品説明 %>
@@ -60,7 +93,7 @@
           オススメ料理
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_area :cooking_name, class:"items-text", id:"cooking_name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
+        <%= f.text_area :cooking_name, class:"items-text", id:"cooking_name", placeholder:"オススメ料理名（必須 10文字まで)", maxlength:"10" %>
         <div class="weight-bold-text">
           ディナーの料金設定
           <span class="indispensable">必須</span>
@@ -74,7 +107,7 @@
           定休日
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_area :regular_day, class:"items-text", id:"regular_day", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
+        <%= f.text_area :regular_day, class:"items-text", id:"regular_day", placeholder:"月曜日など（必須 20文字まで)", maxlength:"20" %>
       </div>
     </div>
     <%# /お店の詳細 %>
